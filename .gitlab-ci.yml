@@ -1,0 +1,12 @@
+stages:
+  - build
+  - test
+  - deploy
+
+package:
+  stage: build
+  script: "mvn package"
+  
+test:
+  stage: test
+  script: "mvn test"

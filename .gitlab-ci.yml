@@ -6,13 +6,19 @@ stages:
 compile:
   stage: build
   script: mvn compile
-  
+  artifacts:
+    paths:
+      - target/  
+
 test:
   stage: test
   script: mvn test
 
-deploy_job:
+deploy:
   stage: deploy
+  environment:
+    name: virtualmachine
+    url: 146.169.44.190:5000
   script: 
     - export PORT=5000
     - sh target/bin/simplewebapp

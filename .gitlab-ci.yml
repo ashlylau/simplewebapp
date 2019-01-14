@@ -3,10 +3,18 @@ stages:
   - test
   - deploy
 
-package:
+compile:
   stage: build
-  script: "mvn package"
+  script: mvn compile
   
 test:
   stage: test
-  script: "mvn test"
+  script: mvn test
+
+deploy_job:
+  stage: deploy
+  script: 
+    - export PORT=5000
+    - sh target/bin/simplewebapp
+
+

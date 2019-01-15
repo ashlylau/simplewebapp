@@ -19,6 +19,7 @@ deploy:
   variables:
     PORT: 5000 
   script: 
+    - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
     - sh target/bin/simplewebapp &>/dev/null &
 
 

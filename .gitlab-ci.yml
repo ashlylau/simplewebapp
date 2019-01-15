@@ -14,12 +14,19 @@ test:
   stage: test
   script: mvn test
 
-deploy:
+run_on_vm:
   stage: deploy
   variables:
-    PORT: 5000 
-  script: 
-    - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
+    PORT: 5000
+  script:
     - sh target/bin/simplewebapp &>/dev/null &
+
+deploy_to_heroku:
+  stage: deploy
+  script: 
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
 
 

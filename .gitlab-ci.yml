@@ -24,6 +24,6 @@ run_on_vm:
 deploy_to_heroku:
   stage: deploy
   script: 
-    - sudo dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
 
 

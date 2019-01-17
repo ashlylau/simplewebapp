@@ -24,8 +24,8 @@ run_on_vm:
 deploy_to_heroku:
   stage: deploy
   script: 
-    - apt-get update -qy
-    - apt-get install -y ruby-dev
+    - sudo apt-get update -qy
+    - sudo apt-get install -y ruby-dev
     - gem install dpl
     - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
 

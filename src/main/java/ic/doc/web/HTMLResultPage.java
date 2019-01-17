@@ -34,6 +34,8 @@ public class HTMLResultPage implements Page {
 
         writer.println("<p><a href=\"/\">Back to Search Page</a></p>");
 
+        writer.println("<p><a href=\"/\">Download Result</a></p>");
+
         // Footer
         writer.println("</body>");
         writer.println("</html>");

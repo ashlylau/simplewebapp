@@ -1,6 +1,8 @@
 package ic.doc.web;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -34,10 +36,39 @@ public class HTMLResultPage implements Page {
 
         writer.println("<p><a href=\"/\">Back to Search Page</a></p>");
 
-        writer.println("<p><a href=\"/\">Download Result</a></p>");
+        JRadioButton option1 = new JRadioButton("Download as HTML");
+        option1.setActionCommand(option1.getText());
+        JRadioButton option2 = new JRadioButton("Download as Markdown");
+
+
+        writer.println("<input type=\"radio\" name=\"d\"> Download as HTML");
+        writer.println("<input type=\"radio\" name=\"d\"> Download as Markdown");
+
+        writer.println("<p><a href=\"/\">Download</a></p>");
+
+
+//        new JRadioButtonOption().setVisible(true);
 
         // Footer
         writer.println("</body>");
         writer.println("</html>");
+    }
+
+    public class JRadioButtonOption extends JFrame {
+        public JRadioButtonOption() {
+            JRadioButton option1 = new JRadioButton("Download as HTML");
+            JRadioButton option2 = new JRadioButton("Download as Markdown");
+
+            ButtonGroup group = new ButtonGroup();
+            group.add(option1);
+            group.add(option2);
+
+            setLayout(new FlowLayout());
+
+            add(option1);
+            add(option2);
+
+            pack();
+        }
     }
 }

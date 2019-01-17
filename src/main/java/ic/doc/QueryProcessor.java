@@ -17,6 +17,18 @@ public class QueryProcessor {
                            "his works of hard science fiction and popular science. \n");
             results.append(System.lineSeparator());
         }
+
+        if (query.toLowerCase().contains("hamilton")) {
+            results.append("Hamilton: An American Musical is a sung- and rapped-through musical\n" +
+                "about the life of American Founding Father Alexander Hamilton, with music, \n" +
+                "lyrics and book by Lin-Manuel Miranda, inspired by the 2004 biography Alexander\n" +
+                    "Hamilton by author and historian Ron Chernow. Incorporating hip hop, R&B, pop,\n" +
+                    "soul, traditional-style show tunes, and color-conscious casting of non-white actors\n" +
+                    "as the Founding Fathers and other historical figures, the musical achieved both\n" +
+                    "critical acclaim and box office success.\n");
+            results.append(System.lineSeparator());
+        }
+
         return results.toString();
     }
 }

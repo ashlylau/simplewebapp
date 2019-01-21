@@ -36,15 +36,15 @@ public class HTMLResultPage implements Page {
 
         writer.println("<p><a href=\"/\">Back to Search Page</a></p>");
 
-        JRadioButton option1 = new JRadioButton("Download as HTML");
-        option1.setActionCommand(option1.getText());
-        JRadioButton option2 = new JRadioButton("Download as Markdown");
-
-        writer.println("<form method=\"POST\">");
-        writer.println("<input type=\"radio\" name=\"type\" value = \"markdown\" /> Download as Markdown");
-        writer.println("<input type=\"radio\" name=\"type\" value = \"pdf\" /> Download as PDF");
-        writer.println("<input type=\"submit\" name=\"download\" value=\"Download\"");
-        writer.println("</form>");
+//        JRadioButton option1 = new JRadioButton("Download as HTML");
+//        option1.setActionCommand(option1.getText());
+//        JRadioButton option2 = new JRadioButton("Download as Markdown");
+//
+//        writer.println("<form method=\"POST\">");
+//        writer.println("<input type=\"radio\" name=\"type\" value = \"markdown\" /> Download as Markdown");
+//        writer.println("<input type=\"radio\" name=\"type\" value = \"pdf\" /> Download as PDF");
+//        writer.println("<input type=\"submit\" name=\"download\" value=\"Download\"");
+//        writer.println("</form>");
 
 //        writer.println("<input type=\"radio\" name=\"d\"> Download as HTML");
 //        writer.println("<input type=\"radio\" name=\"d\"> Download as Markdown");
@@ -59,21 +59,5 @@ public class HTMLResultPage implements Page {
         writer.println("</html>");
     }
 
-    public class JRadioButtonOption extends JFrame {
-        public JRadioButtonOption() {
-            JRadioButton option1 = new JRadioButton("Download as HTML");
-            JRadioButton option2 = new JRadioButton("Download as Markdown");
 
-            ButtonGroup group = new ButtonGroup();
-            group.add(option1);
-            group.add(option2);
-
-            setLayout(new FlowLayout());
-
-            add(option1);
-            add(option2);
-
-            pack();
-        }
-    }
 }

@@ -32,21 +32,18 @@ public class WebServer {
             String query = req.getParameter("q");
             String type = req.getParameter("type");
 
-            if (type != null) {
-                System.out.println("TYPE IS NOT NULL!");
-                if (type.equals("markdown")) {
+            if (query == null) {
+                new IndexPage().writeTo(resp);
+            } else {
+                if (type == null || type.equals("html")) {
+                    new HTMLResultPage(query, new QueryProcessor().process(query)).writeTo(resp);
+                } else if (type.equals("markdown")) {
                     new MarkdownFile(query, new QueryProcessor().process(query)).writeTo(resp);
                 } else if (type.equals("pdf")) {
-                    // TODO
-                }
-            } else {
-                System.out.println("TYPE IS NULL!");
-                if (query == null) {
-                    new IndexPage().writeTo(resp);
-                } else {
-                    new HTMLResultPage(query, new QueryProcessor().process(query)).writeTo(resp);
+
                 }
             }
+
 
 
         }

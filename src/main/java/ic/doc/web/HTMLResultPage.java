@@ -40,11 +40,16 @@ public class HTMLResultPage implements Page {
         option1.setActionCommand(option1.getText());
         JRadioButton option2 = new JRadioButton("Download as Markdown");
 
+        writer.println("<form method=\"POST\">");
+        writer.println("<input type=\"radio\" name=\"type\" value = \"markdown\" /> Download as Markdown");
+        writer.println("<input type=\"radio\" name=\"type\" value = \"pdf\" /> Download as PDF");
+        writer.println("<input type=\"submit\" name=\"download\" value=\"Download\"");
+        writer.println("</form>");
 
-        writer.println("<input type=\"radio\" name=\"d\"> Download as HTML");
-        writer.println("<input type=\"radio\" name=\"d\"> Download as Markdown");
+//        writer.println("<input type=\"radio\" name=\"d\"> Download as HTML");
+//        writer.println("<input type=\"radio\" name=\"d\"> Download as Markdown");
 
-        writer.println("<p><a href=\"/\">Download</a></p>");
+
 
 
 //        new JRadioButtonOption().setVisible(true);

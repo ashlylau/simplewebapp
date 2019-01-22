@@ -25,14 +25,9 @@ public class PdfPage implements Page {
     try {
       ProcessBuilder pb = new
               ProcessBuilder("pandoc", TMP_DIR + "/result.md", "-s", "-o", TMP_DIR + "/result.pdf");
-      final Process p=pb.start();
-      BufferedReader br=new BufferedReader(
-              new InputStreamReader(
-                      p.getInputStream()));
-      String line;
-      while((line=br.readLine())!=null){
-        System.out.println(line);
-      }
+      
+      final Process p = pb.start();
+      p.waitFor();
     } catch (Exception ex) {
       System.out.println(ex);
     }

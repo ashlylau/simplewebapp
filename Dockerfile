@@ -1,16 +1,22 @@
 FROM openjdk:11
 
-COPY . /src
+RUN mkdir /app
+RUN mkdir /app/src
+
+WORKDIR /app
+
+COPY pom.xml /app
+COPY src /app/src
 
 RUN apt-get update
 RUN apt-get install maven -y
-# RUN apt-get install software-properties-common -y
-# RUN add-apt-repository ppa:linuxuprising/java
+RUN apt-get install pandoc -y
+RUN apt-get install texlive -y
 
-CMD mvn package
+RUN mvn package
 
-ENV PORT 8080
-EXPOSE 8080
+ENV PORT 80
+EXPOSE 80
 
-CMD sh /target/bin/simplewebapp
+CMD ["/bin/sh", "/app/target/bin/simplewebapp"]
 

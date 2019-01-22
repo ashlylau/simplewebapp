@@ -19,6 +19,7 @@ public class PdfPage implements Page {
     getPdf();
     Path path = Paths.get(TMP_DIR + "/result.pdf");
     Files.copy(path, resp.getOutputStream());
+    Files.delete(path);
   }
 
   private void getPdf() {

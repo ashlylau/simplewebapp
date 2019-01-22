@@ -1,9 +1,7 @@
 package ic.doc.web;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,19 +16,6 @@ public class MarkdownPage implements Page {
     
     Path path = Paths.get(TMP_DIR + "/result.md");
     Files.copy(path, resp.getOutputStream());
-  }
-
-  private void displayMd(PrintWriter writer) {
-    String fileName = "/result.md";
-
-    try (InputStream fis = new FileInputStream(fileName);
-         InputStreamReader isr = new InputStreamReader(fis,
-             StandardCharsets.UTF_8);
-         BufferedReader br = new BufferedReader(isr)) {
-
-      br.lines().forEach(line -> writer.println(line));
-    } catch (Exception e) {
-      System.out.println("Exception" + e.toString() + " occurred");
-    }
+    Files.delete(path);
   }
 }

@@ -22,14 +22,14 @@ public class PdfPage implements Page {
   }
 
   private void getPdf() {
+    ProcessBuilder pb = new ProcessBuilder("pandoc", TMP_DIR + "/result.md", "-s", "-o", TMP_DIR + "/result.pdf");
+    final Process p;
+    
     try {
-      ProcessBuilder pb = new
-              ProcessBuilder("pandoc", TMP_DIR + "/result.md", "-s", "-o", TMP_DIR + "/result.pdf");
-      
-      final Process p = pb.start();
+      p = pb.start();
       p.waitFor();
-    } catch (Exception ex) {
-      System.out.println(ex);
+    } catch (IOException | InterruptedException e) {
+      e.printStackTrace();
     }
   }
 }

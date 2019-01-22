@@ -11,7 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class WebServer {
 
@@ -40,12 +42,27 @@ public class WebServer {
                 } else if (type.equals("markdown")) {
                     new MarkdownFile(query, new QueryProcessor().process(query)).writeTo(resp);
                 } else if (type.equals("pdf")) {
-
+                    new MarkdownFile(query, new QueryProcessor().process(query)).writeTo(resp);
+                    getPdf();
                 }
             }
+        }
 
-
-
+        private void getPdf() {
+            try {
+                ProcessBuilder pb = new
+                    ProcessBuilder("pandoc", "result.md", "-s", "-o", "result.pdf");
+                final Process p=pb.start();
+                BufferedReader br=new BufferedReader(
+                    new InputStreamReader(
+                        p.getInputStream()));
+                String line;
+                while((line=br.readLine())!=null){
+                    System.out.println(line);
+                }
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
         }
 
         @Override

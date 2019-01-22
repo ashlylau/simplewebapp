@@ -2,20 +2,19 @@ package ic.doc;
 
 import ic.doc.web.HTMLResultPage;
 import ic.doc.web.IndexPage;
-import ic.doc.web.MarkdownFile;
+import ic.doc.web.MarkdownPage;
+import ic.doc.web.PdfPage;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class WebServer {
+    public static final String TMP_DIR = System.getProperty("java.io.tmpdir");
 
     public WebServer() throws Exception {
         Server server = new Server(Integer.valueOf(System.getenv("PORT")));
@@ -40,39 +39,14 @@ public class WebServer {
                 if (type == null || type.equals("html")) {
                     new HTMLResultPage(query, new QueryProcessor().process(query)).writeTo(resp);
                 } else if (type.equals("markdown")) {
-                    new MarkdownFile(query, new QueryProcessor().process(query)).writeTo(resp);
+                    MarkdownFileGenerator generator = new MarkdownFileGenerator(query, new QueryProcessor().process(query));
+                    generator.generate();
+                    new MarkdownPage().writeTo(resp);
                 } else if (type.equals("pdf")) {
-                    new MarkdownFile(query, new QueryProcessor().process(query)).writeTo(resp);
-                    getPdf();
+                    MarkdownFileGenerator generator = new MarkdownFileGenerator(query, new QueryProcessor().process(query));
+                    generator.generate();
+                    new PdfPage().writeTo(resp);
                 }
-            }
-        }
-
-        private void getPdf() {
-            try {
-                ProcessBuilder pb = new
-                    ProcessBuilder("pandoc", "result.md", "-s", "-o", "result.pdf");
-                final Process p=pb.start();
-                BufferedReader br=new BufferedReader(
-                    new InputStreamReader(
-                        p.getInputStream()));
-                String line;
-                while((line=br.readLine())!=null){
-                    System.out.println(line);
-                }
-            } catch (Exception ex) {
-                System.out.println(ex);
-            }
-        }
-
-        @Override
-        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            System.out.println("DO POST called");
-            String type = req.getParameter("type");
-            System.out.println(type);
-
-            if (req.getParameter("download") != null) {
-                System.out.println("im hereee");
             }
         }
     }

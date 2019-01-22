@@ -11,7 +11,8 @@ COPY src /app/src
 RUN apt-get update
 RUN apt-get install maven -y
 RUN apt-get install pandoc -y
-RUN apt-get install texlive -y
+RUN apt-get install texlive-latex-base -y
+RUN apt-get install texlive-fonts-recommended -y
 
 RUN mvn package
 

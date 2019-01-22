@@ -20,10 +20,4 @@ run_on_vm:
     PORT: 5000
   script:
     - sh target/bin/simplewebapp &>/dev/null &
-
-deploy_to_heroku:
-  stage: deploy
-  script: 
     - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
-
-

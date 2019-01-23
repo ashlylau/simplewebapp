@@ -23,7 +23,5 @@ run_on_vm:
 
 deploy_to_heroku:
   stage: deploy
-  script: 
-    - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY &>/dev/null &
-
-
+  script:
+    - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY

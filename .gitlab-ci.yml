@@ -26,5 +26,4 @@ deploy_to_heroku:
   script:
     - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
   only:
-    variables:
-      - $CI_COMMIT_REF_NAME == "master"
+    - master 

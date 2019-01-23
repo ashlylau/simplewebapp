@@ -14,14 +14,17 @@ test:
   stage: test
   script: mvn test
 
-run_on_vm:
-  stage: deploy
-  variables:
-    PORT: 5000
-  script:
-    - sh target/bin/simplewebapp &>/dev/null &
+# run_on_vm:
+#   stage: deploy
+#   variables:
+#     PORT: 5000
+#   script:
+#     - sh target/bin/simplewebapp &>/dev/null &
 
 deploy_to_heroku:
   stage: deploy
   script:
     - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
+  only:
+    variables:
+      - $CI_COMMIT_REF_NAME == "master"

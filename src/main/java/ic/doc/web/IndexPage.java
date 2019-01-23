@@ -14,11 +14,15 @@ public class IndexPage implements Page {
         writer.println("<html>");
         writer.println("<head><title>Welcome</title></head>");
         writer.println("<body>");
+        writer.println("<style>" +
+                "body { background-color: #5dade2; }");
 
+        writer.println("</style>");
         // Content
         writer.println(
+
                 "<h1><center><font size=\"10\">Welcome to our WebApp!!</font></center></h1>" +
-                        "<p><i><center><font size=\"6\">Enter your query in the box below:</font></center></i> " +
+                        "<p><i><center><font face=\"Bedrock\" size=\"6\">Enter your query in the box below:</font></center></i> " +
                         "<form>" +
                         "<br>" +
                         "<center><input type=\"text\" name=\"q\" placeholder=\"Search..\"/></center>" +
@@ -33,6 +37,7 @@ public class IndexPage implements Page {
                         "</p>");
         
         // Footer
+
         writer.println("</body>");
         writer.println("</html>");
     }

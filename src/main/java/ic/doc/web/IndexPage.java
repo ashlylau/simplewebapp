@@ -17,7 +17,7 @@ public class IndexPage implements Page {
 
         // Content
         writer.println(
-                "<h1><center><font size=\"10\">Welcome to our WebApp!!</font></center></h1>" +
+                "<h1><center><font size=\"10\">Welcome t our WebApp!!</font></center></h1>" +
                         "<p><i><center><font size=\"6\">Enter your query in the box below:</font></center></i> " +
                         "<form>" +
                         "<br>" +

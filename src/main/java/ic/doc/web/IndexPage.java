@@ -17,17 +17,18 @@ public class IndexPage implements Page {
 
         // Content
         writer.println(
-                "<h1>Welcome!!</h1>" +
-                        "<p>Enter your query in the box below: " +
+                "<h1><center><font size=\"10\">Welcome to our WebApp!!</font></center></h1>" +
+                        "<p><i><center><font size=\"6\">Enter your query in the box below:</font></center></i> " +
                         "<form>" +
-                        "<input type=\"text\" name=\"q\" />" +
+                        "<br>" +
+                        "<center><input type=\"text\" name=\"q\" placeholder=\"Search..\"/></center>" +
                         "<br><br>" +
-                        "<input type=\"radio\" name=\"type\" value = \"html\" /> View as HTML" +
+                        "<center><input type=\"radio\" name=\"type\" value = \"html\" /> <b><font size=\"4\">View as HTML</font></center></b>" +
                         "<br>" +
-                        "<input type=\"radio\" name=\"type\" value = \"markdown\" /> Download as Markdown" +
+                        "<center><input type=\"radio\" name=\"type\" value = \"markdown\" /> <b><font size=\"4\">Download as Markdown</font></center></b>" +
                         "<br>" +
-                        "<input type=\"radio\" name=\"type\" value = \"pdf\" /> Download as PDF" +
-                        "<br><br><input type=\"submit\">" +
+                        "<center><input type=\"radio\" name=\"type\" value = \"pdf\" /> <b><font size=\"4\">Download as PDF</font></center></b>" +
+                        "<center><br><br><input type=\"submit\"></center>" +
                         "</form>" +
                         "</p>");
         

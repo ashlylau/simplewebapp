@@ -28,7 +28,7 @@ public class HTMLResultPage implements Page {
         // Content
         if (answer == null || answer.isEmpty()) {
             writer.println("<h1>Sorry</h1>");
-            writer.print("<p>Sorry, we didn't understand <em>" + query + "</em></p>");
+            writer.print("<p>Sorry, we didn't understand <em>" + query + "</em>  please try again!</p>");
         } else {
             writer.println("<h1>" + query + "</h1>");
             writer.println("<p>" + answer.replace("\n", "<br>") + "</p>");

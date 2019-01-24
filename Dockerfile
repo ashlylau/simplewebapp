@@ -6,8 +6,8 @@ COPY target/bin target/bin
 COPY target/repo target/repo
 
 RUN apt-get update && apt-get install -y \
-    pandoc
-    texlive-latex-base
+    pandoc \
+    texlive-latex-base \
     texlive-fonts-recommended
 
 ENV PORT 80

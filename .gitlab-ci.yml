@@ -5,10 +5,7 @@ stages:
 
 compile:
   stage: build
-  script: mvn package -Dmaven.test.skip=true
-  artifacts:
-    paths:
-      - target/
+  script: mvn compile 
 
 test:
   stage: test
@@ -24,6 +21,7 @@ test:
 deploy_to_heroku:
   stage: deploy
   script:
+    - mvn package -Dmaven.test.skip=true
     - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
   only:
     - master 

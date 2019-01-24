@@ -2,8 +2,8 @@ FROM openjdk:11
 
 WORKDIR /app
 
-COPY target/bin target/bin
-COPY target/repo target/repo
+COPY target/bin ./target/bin
+COPY target/repo ./target/repo
 
 RUN apt-get update && apt-get install -y \
     pandoc \
@@ -13,4 +13,4 @@ RUN apt-get update && apt-get install -y \
 ENV PORT 80
 EXPOSE 80
 
-CMD ["/bin/sh", "target/bin/simplewebapp"]
+CMD ["/bin/sh", "./target/bin/simplewebapp"]

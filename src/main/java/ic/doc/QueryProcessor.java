@@ -20,8 +20,8 @@ public class QueryProcessor {
 
         if (query.toLowerCase().contains("hamilton")) {
             results.append("Hamilton: An American Musical is a sung- and rapped-through musical\n" +
-                "about the life of American Founding Father Alexander Hamilton, with music, \n" +
-                "lyrics and book by Lin-Manuel Miranda, inspired by the 2004 biography Alexander\n" +
+                    "about the life of American Founding Father Alexander Hamilton, with music, \n" +
+                    "lyrics and book by Lin-Manuel Miranda, inspired by the 2004 biography Alexander\n" +
                     "Hamilton by author and historian Ron Chernow. Incorporating hip hop, R&B, pop,\n" +
                     "soul, traditional-style show tunes, and color-conscious casting of non-white actors\n" +
                     "as the Founding Fathers and other historical figures, the musical achieved both\n" +

@@ -1,6 +1,5 @@
 package ic.doc;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,7 +26,7 @@ public class MarkdownFileGenerator {
       writer.println("## Sorry ");
       writer.println("Sorry, we didn't understand *" + query + "*.\n");
     } else {
-      writer.write(answer.replace("\n", " "));
+      writer.println(answer.replace("\n", " "));
     }
     
     writer.close();

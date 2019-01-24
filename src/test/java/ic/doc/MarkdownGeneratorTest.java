@@ -1,21 +1,16 @@
-package ic.doc.web;
+package ic.doc;
 
-import ic.doc.MarkdownFileGenerator;
-import ic.doc.QueryProcessor;
 import org.junit.Test;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import static ic.doc.WebServer.TMP_DIR;
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
 
-public class MarkdownTest {
+public class MarkdownGeneratorTest {
 
   String query = "Hamilton";
   String answer = new QueryProcessor().process(query);
@@ -31,12 +26,12 @@ public class MarkdownTest {
     String currentLine = reader.readLine();
     while (currentLine != null) {
       builder.append(currentLine);
-//      builder.append("n");
       currentLine = reader.readLine();
     }
 
     reader.close();
     Files.delete(Paths.get(TMP_DIR + "/result.md"));
+
     assertTrue(builder.toString().contains(expectedValue));
   }
 }

@@ -17,7 +17,7 @@ public class WebServer {
     public static final String TMP_DIR = System.getProperty("java.io.tmpdir");
 
     public WebServer() throws Exception {
-        Server server = new Server(5000);
+        Server server = new Server(Integer.valueOf(System.getenv("PORT")));
 
         ServletHandler handler = new ServletHandler();
         handler.addServletWithMapping(new ServletHolder(new Website()), "/*");

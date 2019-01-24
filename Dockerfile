@@ -5,11 +5,11 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
-RUN apt-get update & apt-get install -y \
-    maven \
-    pandoc \
-    texlive-latex-base \
-    texlive-fonts-recommended
+RUN apt-get update
+RUN apt-get install maven -y
+RUN apt-get install pandoc -y
+RUN apt-get install texlive-latex-base -y
+RUN apt-get install texlive-fonts-recommended -y
 
 RUN mvn package
 

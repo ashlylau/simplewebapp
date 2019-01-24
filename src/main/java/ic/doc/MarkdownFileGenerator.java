@@ -24,7 +24,7 @@ public class MarkdownFileGenerator {
     
     if (answer == null || answer.isEmpty()) {
       writer.println("## Sorry ");
-      writer.println("Sorry, we didn't understand *" + query + "*.\n");
+      writer.println("Sorry, we didn't understand *" + query + "*, please try again!\n");
     } else {
       writer.println(answer.replace("\n", " "));
     }

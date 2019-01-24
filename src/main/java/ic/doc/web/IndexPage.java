@@ -14,7 +14,6 @@ public class IndexPage implements Page {
         writer.println("<html>");
         writer.println("<head><title>Welcome</title></head>");
         writer.println("<link rel=\"stylesheet\" href=\"https://www.google.com/css/maia.css\">");
-//        writer.println("<link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\">");
         writer.println("<body>");
         writer.println("<style>" +
                 "body { }");

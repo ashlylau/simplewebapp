@@ -34,7 +34,7 @@ public class IndexPage implements Page {
                         "<center><input type=\"radio\" name=\"type\" value = \"pdf\" /> <b><font size=\"4\">Download as PDF</font></center></b>" +
                         "<br>" + "\n" +
                         "<center><input type=\"radio\" name=\"type\" value = \"latex\" /> <b><font size=\"4\">Download as LaTeX</font></center></b>" +
-                        "<center><br><br><input type=\"submit\"></center>" +
+                        "<br><br><center><input type=\"submit\"></center>" +
                         "</form>" +
                         "</p>");
 
@@ -44,5 +44,5 @@ public class IndexPage implements Page {
         writer.println("</body>");
         writer.println("</html>");
     }
-    
+
 }

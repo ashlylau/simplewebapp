@@ -16,21 +16,21 @@ public class IndexPage implements Page {
         writer.println("<link rel=\"stylesheet\" href=\"https://www.google.com/css/maia.css\">");
         writer.println("<body>");
         writer.println("<style>" +
-                "body { }");
+                "body { background-color: #5dade2; }");
 
         writer.println("</style>");
         // Content
         writer.println(
 
-                "<h1><center><font size=\"10\">Group 5 WebApp</font></center></h1>" +
-                        "<p><center><font face=\"Bedrock\" size=\"6\">Enter your query in the box below:</font></center> " +
+                "<h1><center><font size=\"10\">Welcome to our WebApp!!</font></center></h1>" +
+                        "<p><i><center><font face=\"Bedrock\" size=\"6\">Enter your query in the box below:</font></center></i> " +
                         "<form>" +
                         "<br>" +
                         "<center><input type=\"text\" name=\"q\" placeholder=\"Search..\"/></center>" +
                         "<br><br>" +
-                        "<center><input type=\"radio\" name=\"type\" value = \"html\" /> <font size=\"4\">View as HTML</font></center>" +
+                        "<center><input type=\"radio\" name=\"type\" value = \"html\" /> <b><font size=\"4\">View as HTML</font></center></b>" +
                         "<br>" +
-                        "<center><input type=\"radio\" name=\"type\" value = \"markdown\" /> <font size=\"4\">Download as Markdown</font></center>" +
+                        "<center><input type=\"radio\" name=\"type\" value = \"markdown\" /> <b><font size=\"4\">Download as Markdown</font></center></b>" +
                         "<br>" +
                         "<center><input type=\"radio\" name=\"type\" value = \"pdf\" /> <font size=\"4\">Download as PDF\n</font></center" +
                         "<br>" +
@@ -38,7 +38,8 @@ public class IndexPage implements Page {
                         "<br><br><input type=\"submit\">" +
                         "</form>" +
                         "</p>");
-        
+
+
         // Footer
 
         writer.println("</body>");

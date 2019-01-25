@@ -29,6 +29,17 @@ public class QueryProcessor {
             results.append(System.lineSeparator());
         }
 
+        if(query.toLowerCase().contains("pacman")) {
+            results.append("Pac-man is an arcade game is a Japanese game made in 1980 where the objective the game is to navigates Pac-man\n" +
+                    "through a maze containing dots. The goal of the game is to is to accumulate as many points as possible by collecting the dots and eating ghosts.\n" +
+                    "The player advances to the next level when all the dots is collected. The four ghosts roam the maze and chase Pac-Man. If Pac-man comes into contact with a ghost, he loses a life.\n" +
+                    "The game ends when all lives have been lost.\n" + "\n" + "\n" + "\n" + "\n" +
+                    "<a href=https://www.miniclip.com/games/pac-man-io/en/><i>Click here</i></a>" + " to go to the game\n" + "\n" +
+                    "Reference: https://en.wikipedia.org/wiki/Pac-Man#Gameplay");
+            results.append(System.lineSeparator());
+
+        }
+
         return results.toString();
     }
 }

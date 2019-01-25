@@ -29,7 +29,6 @@ test:
 deploy_to_heroku:
   stage: deploy
   script:
-    - mvn package -Dmaven.test.skip=true
     - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
   only:
     - master 

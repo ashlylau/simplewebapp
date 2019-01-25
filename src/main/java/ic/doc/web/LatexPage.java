@@ -1,29 +1,28 @@
 package ic.doc.web;
 
-import static ic.doc.WebServer.TMP_DIR;
-
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import javax.servlet.http.HttpServletResponse;
 
-public class PdfPage implements Page {
-  
+import static ic.doc.WebServer.TMP_DIR;
+
+public class LatexPage implements Page {
   @Override
   public void writeTo(HttpServletResponse resp) throws IOException {
-    resp.setContentType("application/pdf");
-    
-    createPdf();
-    Path path = Paths.get(TMP_DIR + "/result.pdf");
+    resp.setContentType("application/x-tex");
+
+    createLatex();
+    Path path = Paths.get(TMP_DIR + "/result.tex");
     Files.copy(path, resp.getOutputStream());
     Files.delete(path);
   }
 
-  private void createPdf() {
-    ProcessBuilder pb = new ProcessBuilder("pandoc", TMP_DIR + "/result.md", "-s", "-o", TMP_DIR + "/result.pdf");
+  private void createLatex() {
+    ProcessBuilder pb = new ProcessBuilder("pandoc", TMP_DIR + "/result.md", "-f", "markdown", "-t", "latex", "-s", "-o", TMP_DIR + "/result.tex");
     final Process p;
-    
+
     try {
       p = pb.start();
       p.waitFor();

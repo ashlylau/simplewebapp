@@ -1,9 +1,6 @@
 package ic.doc;
 
-import ic.doc.web.HTMLResultPage;
-import ic.doc.web.IndexPage;
-import ic.doc.web.MarkdownPage;
-import ic.doc.web.PdfPage;
+import ic.doc.web.*;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -46,6 +43,10 @@ public class WebServer {
                     MarkdownFileGenerator generator = new MarkdownFileGenerator(query, new QueryProcessor().process(query));
                     generator.generate();
                     new PdfPage().writeTo(resp);
+                } else if (type.equals("latex")) {
+                    MarkdownFileGenerator generator = new MarkdownFileGenerator(query, new QueryProcessor().process(query));
+                    generator.generate();
+                    new LatexPage().writeTo(resp);
                 }
             }
         }

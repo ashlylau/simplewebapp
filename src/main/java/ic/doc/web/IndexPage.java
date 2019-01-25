@@ -32,8 +32,10 @@ public class IndexPage implements Page {
                         "<br>" +
                         "<center><input type=\"radio\" name=\"type\" value = \"markdown\" /> <font size=\"4\">Download as Markdown</font></center>" +
                         "<br>" +
-                        "<center><input type=\"radio\" name=\"type\" value = \"pdf\" /> <font size=\"4\">Download as PDF</font></center>" +
-                        "<center><br><br><br><input type=\"submit\"></center>" +
+                        "<input type=\"radio\" name=\"type\" value = \"pdf\" /> Download as PDF" +
+                        "<br>" +
+                        "<input type=\"radio\" name=\"type\" value = \"latex\" /> Download as LaTeX" +
+                        "<br><br><input type=\"submit\">" +
                         "</form>" +
                         "</p>");
         

@@ -1,29 +1,34 @@
 stages:
-  - build
+  - compile
   - test
   - deploy
 
+# Compiles code and pass target folder to next stage to avoid recompilation.
 compile:
-  stage: build
-  script: mvn package -Dmaven.test.skip=true
+  stage: compile
+  script: mvn compile 
   artifacts:
     paths:
       - target/
 
+# Runs tests for code.
 test:
   stage: test
   script: mvn test
 
-run_on_vm:
-  stage: deploy
-  variables:
-    PORT: 5000
-  script:
-    - sh target/bin/simplewebapp &>/dev/null &
+# Deploys and runs on virtual machine.
+# run_on_vm:
+#   stage: deploy
+#   variables:
+#     PORT: 5000
+#   script:
+#     - mvn package -Dmaven.test.skip=true
+#     - sh target/bin/simplewebapp &>/dev/null &
 
+# Deploys application to Heroku. Only master branch pushes will be deployed.
 deploy_to_heroku:
   stage: deploy
-  script: 
-    - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY &>/dev/null &
-
-
+  script:
+    - dpl --provider=heroku --app=cg3417-simplewebapp --api-key=$HEROKU_API_KEY
+  only:
+    - master 

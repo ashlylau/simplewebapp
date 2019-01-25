@@ -1,12 +1,12 @@
 package ic.doc.web;
 
-import javax.servlet.http.HttpServletResponse;
+import static ic.doc.WebServer.TMP_DIR;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import static ic.doc.WebServer.TMP_DIR;
+import javax.servlet.http.HttpServletResponse;
 
 public class PdfPage implements Page {
   
